@@ -23,6 +23,6 @@ class SpellChecker
   end
   
   def correct(word)
-    word
+    word if @dictionary[word] > 0 # word exists in dictionary
   end
 end
