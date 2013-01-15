@@ -33,5 +33,12 @@ describe SpellChecker do
         spellchecker.correct(word).should == nil
       end
     end
+    
+    describe "#edit_by_one" do
+      it "should suggest word that one letter missing (deletion)"
+      it "should suggest word that swap adjacent letters (transposition)"
+      it "should suggest word that change one letter to another (alteration)"
+      it "should suggest word that adds a letter (insertion)"
+    end
   end
 end
