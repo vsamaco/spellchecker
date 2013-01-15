@@ -34,11 +34,13 @@ describe SpellChecker do
       end
     end
     
-    describe "#edit_by_one" do
-      it "should suggest word that one letter missing (deletion)"
-      it "should suggest word that swap adjacent letters (transposition)"
-      it "should suggest word that change one letter to another (alteration)"
-      it "should suggest word that adds a letter (insertion)"
+    it "should suggest word that one letter missing (deletion)" do
+      spellchecker.correct("on").should == "one"
     end
+    
+    it "should suggest word that swap adjacent letters (transposition)"
+    it "should suggest word that change one letter to another (alteration)"
+    it "should suggest word that adds a letter (insertion)"
+
   end
 end
