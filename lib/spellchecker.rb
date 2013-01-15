@@ -22,7 +22,26 @@ class SpellChecker
     text.downcase.scan(/[a-z]+/)
   end
   
+  def known(words)
+    known_words = Set.new
+    words.each do |word|
+      known_words << word if @dictionary.include?(word)
+    end
+    
+    known_words
+  end
+  
   def correct(word)
-    word if @dictionary[word] > 0 # word exists in dictionary
+    suggestions = Set.new
+    suggestions = known([word])
+    suggestions = known(edit_by_one(word)) if suggestions.empty?
+    
+    suggestions.max{ |a, b| @dictionary[a] <=> @dictionary[b] }
+  end
+  
+  def edit_by_one(word)
+    deletes = Array.new
+    
+    Set.new(deletes)
   end
 end
