@@ -1,7 +1,7 @@
 class SpellChecker
   attr_reader :dictionary
 
-  def initialize(filename)
+  def initialize(filename="file.txt")
     create_dictionary(filename)
   end
   
@@ -20,5 +20,9 @@ class SpellChecker
   
   def words(text)
     text.downcase.scan(/[a-z]+/)
+  end
+  
+  def correct(word)
+    word
   end
 end
