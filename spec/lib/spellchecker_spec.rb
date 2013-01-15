@@ -26,5 +26,12 @@ describe SpellChecker do
         spellchecker.correct(word).should == word.downcase
       end
     end
+    
+    it "should return no suggestions for wrong spelling" do
+      words = ["ten", "twenty", "thirty"]
+      words.each do |word|
+        spellchecker.correct(word).should == nil
+      end
+    end
   end
 end
