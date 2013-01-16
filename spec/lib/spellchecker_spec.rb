@@ -47,7 +47,7 @@ describe SpellChecker do
     end
     
     it "should suggest word that adds a letter (insertion)" do
-      spellchecker.correct("onze").should == "one"
+      spellchecker.correct("oe").should == "one"
     end
 
   end
