@@ -48,22 +48,22 @@ class SpellChecker
     # deletion variation that removes character
     deletion = (0...n).collect{ |i| word[0...i] + word[i+1..-1] }
     
-    puts "deletion: #{deletion.to_s}"
+    # puts "deletion: #{deletion.to_s}"
     
     # transposition variation that swap adjacent character
     transposition = (0...n-1).collect{ |i| word[0...i] + word[i+1, 1] + word[i, 1] + word[i+2..-1] }
     
-    puts "transposition: #{transposition.to_s}"
+    # puts "transposition: #{transposition.to_s}"
     
     alteration = Array.new
     n.times { |i| ALPHABET.each { |c| alteration << "#{word[0...i]}#{c}#{word[i+1..-1]}" }}
     
-    puts "alteration: #{alteration.to_s}"
+    # puts "alteration: #{alteration.to_s}"
     
     insertion = Array.new
     n.times { |i| ALPHABET.each { |c| insertion << "#{word[0...i]}#{c}#{word[i..-1]}" }}
     
-    puts "insertion: #{insertion.to_s}"
+    # puts "insertion: #{insertion.to_s}"
         
     Set.new(deletion + transposition + alteration + insertion)
   end
