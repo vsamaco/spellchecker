@@ -1,6 +1,8 @@
 class SpellChecker
   attr_reader :dictionary
 
+  ALPHABET = ("a".."z").to_a
+
   def initialize(filename="file.txt")
     create_dictionary(filename)
   end
@@ -53,6 +55,11 @@ class SpellChecker
     
     puts "transposition: #{transposition.to_s}"
     
-    Set.new(deletion + transposition)
+    alteration = Array.new
+    n.times { |i| ALPHABET.each { |c| alteration << "#{word[0...i]}#{c}#{word[i+1..-1]}" }}
+    
+    puts "alteration: #{alteration.to_s}"
+        
+    Set.new(deletion + transposition + alteration)
   end
 end
