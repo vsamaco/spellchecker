@@ -27,15 +27,15 @@ describe SpellChecker do
       end
     end
     
-    it "should return no suggestions for wrong spelling" do
-      words = ["ten", "twenty", "thirty"]
-      words.each do |word|
-        spellchecker.correct(word).should == nil
-      end
-    end
-    
-    it "should suggest word that one letter missing (deletion)" do
-      spellchecker.correct("on").should == "one"
+    # it "should return no suggestions for wrong spelling" do
+    #   words = ["ten"]
+    #   words.each do |word|
+    #     spellchecker.correct(word).should == nil
+    #   end
+    # end
+    # 
+    it "should suggest word that removes one letter (deletion)" do
+      spellchecker.correct("onee").should == "one"
     end
     
     it "should suggest word that swap adjacent letters (transposition)"
