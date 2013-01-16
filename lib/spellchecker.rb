@@ -43,11 +43,16 @@ class SpellChecker
   def edit_by_one(word)
     n = word.length
     
-    # create variation that removes character
+    # deletion variation that removes character
     deletion = (0...n).collect{ |i| word[0...i] + word[i+1..-1] }
     
-    
     puts "deletion: #{deletion.to_s}"
-    Set.new(deletion)
+    
+    # transposition variation that swap adjacent character
+    transposition = (0...n-1).collect{ |i| word[0...i] + word[i+1, 1] + word[i, 1] + word[i+2..-1] }
+    
+    puts "transposition: #{transposition.to_s}"
+    
+    Set.new(deletion + transposition)
   end
 end
