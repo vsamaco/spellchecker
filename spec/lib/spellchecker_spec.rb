@@ -42,10 +42,12 @@ describe SpellChecker do
       spellchecker.correct("oen").should == "one"
     end
     
-    it "should suggest word that change one letter to another (alteration)"
+    it "should suggest word that change one letter to another (alteration)" do
+      spellchecker.correct("ote").should == "one"
+    end
     
     it "should suggest word that adds a letter (insertion)" do
-      spellchecker.correct("ote").should == "one"
+ 
     end
 
   end
