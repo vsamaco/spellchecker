@@ -59,7 +59,12 @@ class SpellChecker
     n.times { |i| ALPHABET.each { |c| alteration << "#{word[0...i]}#{c}#{word[i+1..-1]}" }}
     
     puts "alteration: #{alteration.to_s}"
+    
+    insertion = Array.new
+    n.times { |i| ALPHABET.each { |c| insertion << "#{word[0...i]}#{c}#{word[i..-1]}" }}
+    
+    puts "insertion: #{insertion.to_s}"
         
-    Set.new(deletion + transposition + alteration)
+    Set.new(deletion + transposition + alteration + insertion)
   end
 end
