@@ -27,13 +27,13 @@ describe SpellChecker do
       end
     end
     
-    # it "should return no suggestions for wrong spelling" do
-    #   words = ["ten"]
-    #   words.each do |word|
-    #     spellchecker.correct(word).should == nil
-    #   end
-    # end
-    # 
+    it "should return no suggestions for wrong spelling" do
+      words = ["ten"]
+      words.each do |word|
+        spellchecker.correct(word).should == nil
+      end
+    end
+    
     it "should suggest word that removes one letter (deletion)" do
       spellchecker.correct("onee").should == "one"
     end
