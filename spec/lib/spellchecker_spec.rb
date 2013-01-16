@@ -38,7 +38,10 @@ describe SpellChecker do
       spellchecker.correct("onee").should == "one"
     end
     
-    it "should suggest word that swap adjacent letters (transposition)"
+    it "should suggest word that swap adjacent letters (transposition)" do
+      spellchecker.correct("oen").should == "one"
+    end
+    
     it "should suggest word that change one letter to another (alteration)"
     it "should suggest word that adds a letter (insertion)"
 
