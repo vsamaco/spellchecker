@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'spellchecker'
+
+spellchecker = SpellChecker.new('big.txt')
+
+loop do
+  print "Enter word: "
+  word = gets.chomp
+  result = spellchecker.correct(word)
+  puts "#{word}: #{result ? result : '<no match>'}"
+end

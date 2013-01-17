@@ -1,3 +1,5 @@
+require 'Set'
+
 class SpellChecker
   attr_reader :dictionary
 
